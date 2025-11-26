@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>アンケートへ移動中...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script>
+    // ======== ランダム分岐させたいURL一覧 ========
+    const urls = [
+      "https://forms.gle/DzxtTrBVFbjjttSCA", // 条件1：企業発信 × 大企業
+      "https://forms.gle/fgjAypNpwQKMd3wP6", // 条件2：企業発信 × 新興ベンチャー
+      "https://forms.gle/TsLzMnb1jjZPhY24A", // 条件3：消費者発信 × 大企業
+      "https://forms.gle/xZpX7vVfpKiGtfycA"  // 条件4：消費者発信 × 新興ベンチャー
+    ];
+
+    // ページ読み込み後にランダムで1つに飛ばす
+    window.addEventListener("DOMContentLoaded", () => {
+      const randomUrl = urls[Math.floor(Math.random() * urls.length)];
+      // 自動リダイレクト
+      window.location.href = randomUrl;
+      // window.location.replace(randomUrl); でもOK
+    });
+  </script>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>アンケートページへ移動しています...</h1>
+  <p>画面が切り替わらない場合は、<br>
+    <a id="manual-link" href="https://forms.gle/DzxtTrBVFbjjttSCA">こちらをタップしてください。</a>
+  </p>
+
+  <script>
+    // 自動ジャンプ先と同じURLを手動リンクにも反映しておく
+    const urls2 = [
+      "https://forms.gle/DzxtTrBVFbjjttSCA",
+      "https://forms.gle/fgjAypNpwQKMd3wP6",
+      "https://forms.gle/TsLzMnb1jjZPhY24A",
+      "https://forms.gle/xZpX7vVfpKiGtfycA"
+    ];
+    const randomUrl2 = urls2[Math.floor(Math.random() * urls2.length)];
+    document.getElementById("manual-link").href = randomUrl2;
+  </script>
+</body>
+</html>
